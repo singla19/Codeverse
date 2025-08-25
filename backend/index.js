@@ -12,7 +12,6 @@ const io = new Server(server, {
 });
 
 const rooms = new Map();
-
 io.on("connection", (socket)=>{
     console.log("user connected", socket.id);
 
@@ -28,7 +27,7 @@ io.on("connection", (socket)=>{
 
         currentRoom = roomId;
         currentUser = userName;
-        socket,join(roomId);
+        socket.join(roomId);
 
         if(!rooms.has(roomId)){
             rooms.set(roomId, new Set());
