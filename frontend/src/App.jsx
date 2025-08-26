@@ -3,7 +3,7 @@ import "./App.css";
 import io from 'socket.io-client';
 import Editor from '@monaco-editor/react'
 
-const socket = io(import.meta.env.BACKEND_URL);
+const socket = io("https://codeverse-21r5.onrender.com");
 
 const App = () => {
   const [joined, setJoined] = useState(false);
