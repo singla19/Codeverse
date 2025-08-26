@@ -49,7 +49,11 @@ io.on("connection", (socket)=>{
             currentRoom=null;
             currentUser=null;
         }
-    })
+    });
+
+    socket.on("typing", ({roomId, userName})=>{
+        socket.to(roomId).emit("userTyping", userName);
+    });
 
     socket.on("disconnect", ()=>{
         if(currentRoom && currentUser){
