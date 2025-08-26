@@ -29,12 +29,17 @@ const App = () => {
       setTimeout(()=>{
         setTyping("");
       }, 5000);
+    });
+
+    socket.on("languageUpdate", (newlanguage)=>{
+      setLanguage(newlanguage);
     })
 
     return () => {
       socket.off("userJoined");
       socket.off("codeUpdate");
       socket.off("userTyping");
+      socket.off("languageUpdate");
     }
   }, []);
 
